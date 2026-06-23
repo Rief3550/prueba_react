@@ -1,0 +1,10 @@
+:root {
+  --color-primario: #646cff; /* Un color violeta/azul genial */
+  --texto-grande: 3rem; /* Un tamaño de letra imponente */
+  --color-texto: #ffffff; /* Texto blanco */
+}
+
+.titulo-dinamico {
+  color: var(--color-primario);
+  font-size: var(--texto-grande);
+}
