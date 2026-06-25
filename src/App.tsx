@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import ListaProyectos from "./ListaProyectos";
 
 interface Proyecto {
   id: number;
@@ -59,30 +60,12 @@ function App() {
       <button onClick={() => setSalud(20)}>Simular daño</button>
       <hr />
 
-      <h2>Mis proyectos activos</h2>
-      <ul>
-        {proyectos.map((proy) => (
-          <li key={proy.id} style={{ margin: "10px 0" }}>
-            {/*Mostramos el nombre y el estado actual */}
-            <strong>{proy.nombre}</strong> -{" "}
-            {proy.completado ? "FINALIZADO" : "EN DESARROLLO"}
-            {/* Boton 1 : Alternar completado */}
-            <button
-              onClick={() => alternarCompletado(proy.id)}
-              style={{ marginLeft: "10px", backgroundColor: "#3b82f6" }}
-            >
-              Cambiar Estado
-            </button>
-            {/* boton 2: eliminar elemento */}
-            <button
-              onClick={() => eliminarProyecto(proy.id)}
-              style={{ marginLeft: "5px", backgroundColor: "#ef4444" }}
-            >
-              Borrar
-            </button>
-          </li>
-        ))}
-      </ul>
+      {/* Invocación al Hijo */}
+      <ListaProyectos
+        items={proyectos}
+        onAlternar={alternarCompletado}
+        onEliminar={eliminarProyecto}
+      />
     </>
   );
 }
